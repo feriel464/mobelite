@@ -6,100 +6,51 @@ import {
   ImageBackground,
   ScrollView,
   StyleSheet,
-  TouchableWithoutFeedback, Header
+  TouchableWithoutFeedback
 } from "react-native";
 //argon
-import { Images, argonTheme, articles } from "../constants/";
-import { SearchBar } from 'react-native-elements';
-
-import { Card } from "../components/";
+import { Images, argonTheme, articles} from "../constants";
+import { Card } from "../components";
 import React from "react";
-import artc from "../constants/artc";
-import Food from "../constants/Food";
-import Resto from "../components/Resto";
 
+import Card2 from "../components/Card2";
+import  Food from "../constants/Food"
+import HairCut from "../constants/HairCut";
 const { width } = Dimensions.get("screen");
 
 const thumbMeasure = (width - 48 - 32) / 3;
 const cardWidth = width - theme.SIZES.BASE * 2;
 
-
-class Foods extends React.Component {
- 
-
-  renderProduct = (item, index) => {
-    const { navigation } = this.props;
-
-    return (
-      
-      <TouchableWithoutFeedback
-        style={{ zIndex: 3 }}
-        key={`product-${item.title}`}
-        onPress={() => navigation.navigate("Pro", { product: item })}
-      >
-    
-        <Block center style={styles.productItem}>
-          <Image
-            resizeMode="cover"
-            style={styles.productImage}
-            source={{ uri: item.image }}
-          />
-          <Block center style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Text
-              center
-              size={16}
-              color={theme.COLORS.MUTED}
-              style={styles.productPrice}
-            >
-              {item.price}
-            </Text>
-            <Text center size={34}>
-              {item.title}
-            </Text>
-            <Text
-              center
-              size={16}
-              color={theme.COLORS.MUTED}
-              style={styles.productDescription}
-            >
-              {item.description}
-            </Text>
-          </Block>
-        </Block>
-      </TouchableWithoutFeedback>
-    );
-  };
+class Cuthair extends React.Component {
 
 
   renderCards = () => {
+    const item = this.props.route.params.product;
+    console.log("test", item)
     const { navigation } = this.props;
-
     return (
-      
       <Block flex style={styles.group}>
-        
-       
-        <Text bold size={16} style={styles.title}
-                onPress={() => navigation.navigate("Delivery")}
-                >
-         --  les restaurant disponibles  --
+        <Text bold size={16} 
+        style={styles.title}
+        onPress={() => navigation.navigate("Wahiba")}
+
+         >
+          des articles disponibles 
         </Text>
-        
+        <Block style={{ paddingHorizontal: "0%" , marginRight:"-1%"}}>
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-          <Resto item={Food[0]} full 
-          
-          />
-            <Block flex row>
-            <Resto item={Food[1]} full />
+           
+            <Card2 item={HairCut[1]} full />
+            <Card2 item={HairCut[2]} full />
 
-              
-            </Block>
-            <Resto item={Food[4]} full />
-            <Resto item={Food[3]} full />
             
+            <Card2 item={HairCut[3]} full />
+ 
 
           </Block>
+  
+            </Block>
           <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
             <ScrollView
               horizontal={true}
@@ -122,12 +73,11 @@ class Foods extends React.Component {
   };
 
 
-
   render() {
+   
     return (
       <Block flex center>
         <ScrollView showsVerticalScrollIndicator={false}>
-          
           {this.renderCards()}
         </ScrollView>
       </Block>
@@ -195,4 +145,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Foods;
+export default Cuthair;

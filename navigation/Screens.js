@@ -25,6 +25,11 @@ import Model from "../screens/Model";
 import Delivery from "../screens/Delivery";
 import Wahiba from "../screens/Wahiba";
 import Message from "../screens/Message";
+import Cosmetique from "../screens/Cosmetique";
+import Cuthair from "../screens/Cuthair";
+import Ptdej from "../screens/Ptdej";
+import Patisserie from "../screens/Patisserie";
+import FastFood from "../screens/FastFood";
 const { width } = Dimensions.get("screen");
 
 const Stack = createStackNavigator();
@@ -46,8 +51,8 @@ function ElementsStack(props) {
         name="Elements"
         component={Elements}
         options={{
-          header: ({ navigation, scene }) => (
-            <Header title="Elements" navigation={navigation} scene={scene} />
+          header: ({ navigation, route }) => (
+            <Header title="Elements" navigation={navigation} route={route} />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" },
         }}
@@ -57,14 +62,14 @@ function ElementsStack(props) {
         name="Pro"
         component={Pro}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
           headerTransparent: true,
@@ -87,8 +92,8 @@ function ProStack(props) {
         name="Food"
         component={Pro}
         options={{
-          header: ({ navigation, scene }) => (
-            <Header title="Food" navigation={navigation} scene={scene} />
+          header: ({ navigation, route }) => (
+            <Header title="Food" navigation={navigation} route={route} />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" },
         }}
@@ -97,14 +102,65 @@ function ProStack(props) {
         name="Pro"
         component={Pro}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+          <Stack.Screen
+        name="Ptdej"
+        component={Ptdej}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              route={route}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+        <Stack.Screen
+        name="FastFood"
+        component={FastFood}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              route={route}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+               <Stack.Screen
+        name="Patisserie"
+        component={Patisserie}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              route={route}
             />
           ),
           headerTransparent: true,
@@ -127,19 +183,38 @@ function MakeStack(props) {
         name="Makeup"
         component={Makeup}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
+            
           ),
           headerTransparent: true,
         }}
       />
+
+<Stack.Screen
+        name="Wahiba"
+        component={Wahiba}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              route={route}
+            />
+            ),
+            headerTransparent: true,
+          }}
+        />
     </Stack.Navigator>
   );
 }
@@ -156,14 +231,14 @@ function ViewFStack(props) {
         name="Viewfood"
         component={Viewfood}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
           headerTransparent: true,
@@ -184,14 +259,14 @@ function ModelsStack(props) {
         name="Model"
         component={Model}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
           headerTransparent: true,
@@ -208,19 +283,36 @@ function FoodsStack(props) {
         headerShown: "screen",
       }}
     >
-     
+     <Stack.Screen
+        name="Delivery"
+        component={Delivery}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              transparent
+              white
+              title=""
+              navigation={navigation}
+              route={route}
+            />
+            
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          headerTransparent: true,
+        }}
+      />
       <Stack.Screen
         name="Foods"
         component={Foods}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
           headerTransparent: true,
@@ -242,14 +334,14 @@ function MessageStack(props) {
         name="Message"
         component={Message}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
           headerTransparent: true,
@@ -258,6 +350,7 @@ function MessageStack(props) {
     </Stack.Navigator>
   );
 }
+
 function WahibaStack(props) {
   return (
     <Stack.Navigator
@@ -301,13 +394,13 @@ function ProfileStack(props) {
         name="Profile"
         component={Profile}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               transparent
               white
               title=""
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
             
           ),
@@ -320,14 +413,14 @@ function ProfileStack(props) {
         name="Pro"
         component={Pro}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
         }}
@@ -349,13 +442,13 @@ function DeliveryStack(props) {
         name="Delivery"
         component={Delivery}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               transparent
               white
               title=""
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
             
           ),
@@ -368,19 +461,35 @@ function DeliveryStack(props) {
         name="Pro"
         component={Pro}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
         }}
       />
-    
+     <Stack.Screen
+        name="Foods"
+        component={Foods}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              route={route}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -398,36 +507,69 @@ function HomeStack(props) {
         name="Home"
         component={Home}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title="Home"
               search
               options
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
-    
+   
       <Stack.Screen
         name="Pro"
         component={Pro}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, route }) => (
             <Header
               title=""
               back
               white
               transparent
               navigation={navigation}
-              scene={scene}
+              route={route}
             />
           ),
         }}
       />
-       
+        <Stack.Screen
+        name="Cosmetique"
+        component={Cosmetique}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              route={route}
+            />
+            ),
+            headerTransparent: true,
+          }}
+        />
+         <Stack.Screen
+        name="Cuthair"
+        component={Cuthair}
+        options={{
+          header: ({ navigation, route }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              route={route}
+            />
+            ),
+            headerTransparent: true,
+          }}
+        />
     </Stack.Navigator>
   );
 }
@@ -507,6 +649,11 @@ function AppStack(props) {
       <Drawer.Screen name="Delivery" component={DeliveryStack}/>
       <Drawer.Screen name="Wahiba" component={WahibaStack}/>
       <Drawer.Screen name="Message" component={MessageStack}/>
+      <Drawer.Screen name="Cosmetique" component={HomeStack}/>
+      <Drawer.Screen name="Cuthair" component={HomeStack}/>
+      <Drawer.Screen name="Ptdej" component={ProStack}/>
+      <Drawer.Screen name="Patisserie" component={ProStack}/>
+      <Drawer.Screen name="FastFood" component={ProStack}/>
 
     </Drawer.Navigator>
   );

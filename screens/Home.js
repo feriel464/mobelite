@@ -15,6 +15,8 @@ import { Card } from "../components/";
 import React from "react";
 import Makeup from "../screens/Makeup";
 import Model from "../screens/Model";
+import Card2 from "../components/Make";
+import Card3 from "../components/Card2";
 
 const { width } = Dimensions.get("screen");
 
@@ -116,7 +118,7 @@ class Home extends React.Component {
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}
           >
             <Block flex row>
-              <Card
+              <Card2
 
                 item={articles[1]}
                 onPress={() => navigation.navigate("Makeup")}
@@ -124,7 +126,7 @@ class Home extends React.Component {
                 style={{ marginRight: theme.SIZES.BASE }}
                 
               />
-              <Card item={articles[2]} />
+              <Card3 item={articles[2]} />
             </Block>
             <Block flex card shadow style={styles.category}>
               <ImageBackground

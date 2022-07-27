@@ -26,14 +26,14 @@ class Wahiba extends React.Component {
 
   render() {
 
-    const item = this.props.route.params;
-    console.log("test",item)
+    const item = this.props.route.params.product;
+    console.log("test", item)
 
     return (
       <Block flex style={styles.profile}>
         <Block flex>
           <ImageBackground
-            source={item.Image}
+            source={{ uri: item.image}}
             style={styles.profileContainer}
             imageStyle={styles.profileBackground}
           >
@@ -57,9 +57,9 @@ class Wahiba extends React.Component {
                 <Block flex>
                   <Block middle style={styles.nameInfo}>
                     <Text bold size={28} color="#32325D">
-                   { item.title}                    </Text>
+                  {item.title}               </Text>
                     <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
-                      Sousse , Jammel , Tunis  
+                      {item.address}
                       
                     </Text>
                   </Block>
@@ -93,15 +93,14 @@ class Wahiba extends React.Component {
                   <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
             <Block>
-          <Card item={wahiba[0]} horizontal
+          <Card item={item.list[0]} horizontal
           
           />
             
-            <Card item={wahiba[1]} horizontal />
-
-              
-            <Card item={wahiba[4]} horizontal  />
-            <Card item={wahiba[3]} horizontal  />
+            <Card item={item.list[1]} horizontal />
+            <Card item={item.list[2]} horizontal />
+            <Card item={item.list[3]} horizontal />
+            
            
 </Block>
           </Block>

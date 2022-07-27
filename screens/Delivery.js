@@ -8,7 +8,7 @@ import {
   Platform
 } from "react-native";
 import { Block, Text, theme } from "galio-framework";
-import { Card } from "../components/";
+import { Resto } from "../components/";
 import { Button } from "../components";
 import { Images, argonTheme } from "../constants";
 import { HeaderHeight } from "../constants/utils";
@@ -18,12 +18,15 @@ const { width, height } = Dimensions.get("screen");
 const thumbMeasure = (width - 48 - 32) / 3;
 
 class Delivery extends React.Component {
+  
   render() {
+    const item = this.props.route.params.product;
+    console.log("test", item)
     return (
       <Block flex style={styles.profile}>
         <Block flex>
           <ImageBackground
-            source={Images.profileBackground1}
+            source={{uri: item.image}}
             style={styles.profileContainer}
             imageStyle={styles.profileBackground}
           >
@@ -31,7 +34,7 @@ class Delivery extends React.Component {
               showsVerticalScrollIndicator={false}
               style={{ width, marginTop: '25%' }}
             >
-              <Block flex style={styles.profileCard }>
+              <Block flex style={styles.profileResto }>
                 
                 <Block style={styles.info}>
                   <Block
@@ -47,10 +50,10 @@ class Delivery extends React.Component {
                 <Block flex>
                   <Block middle style={styles.nameInfo}>
                     <Text bold size={28} color="#32325D">
-                      L'AROMATE
+                    {item.title}  
                     </Text>
                     <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
-                      Sousse 
+                    {item.address}  
                       
                     </Text>
                   </Block>
@@ -84,24 +87,20 @@ class Delivery extends React.Component {
                   <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
             <Block>
-          <Card item={Laromate[0]} horizontal 
+          <Resto item={item.list[0]} horizontal 
           
           />
           <Text>price : 20dt                  + 2dt livraison</Text></Block>
             
-            <Card item={Laromate[1]} horizontal />
+            <Resto item={item.list[1]} horizontal />
 
               
             <Text>price : 13dt                  + 2dt livraison</Text>
-            <Card item={Laromate[4]} horizontal  />
+            <Resto item={item.list[2]} horizontal  />
             <Text>price : 10dt                  + free livraison</Text>
-            <Card item={Laromate[3]} horizontal  />
+            <Resto item={item.list[3]} horizontal  />
             <Text>price : 25dt                  + 2dt livraison</Text>
-            <Card item={Laromate[5]} horizontal  />
-            <Text>price : 15dt                  + 2dt livraison</Text>
-            <Card item={Laromate[6]} horizontal  />
-            <Text>price : 9dt                  + 2
-                dt livraison</Text>
+            
 
           </Block>
           <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
@@ -136,12 +135,12 @@ class Delivery extends React.Component {
                                     <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
             <Block>
-          <Card item={Laromate[7]} horizontal 
+          <Resto item={item.list[0]} horizontal 
           
           />
           <Text>price : 5dt                  </Text></Block>
             
-            <Card item={Laromate[8]} horizontal />
+            <Resto item={item.list[1]} horizontal />
 
               
             <Text>price : 6dt                 </Text>
@@ -157,7 +156,7 @@ class Delivery extends React.Component {
         </Block>
         {/* <ScrollView showsVerticalScrollIndicator={false} 
                     contentContainerStyle={{ flex: 1, width, height, zIndex: 9000, backgroundColor: 'red' }}>
-        <Block flex style={styles.profileCard}>
+        <Block flex style={styles.profileResto}>
           <Block middle style={styles.avatarContainer}>
             <Image
               source={{ uri: Images.ProfilePicture }}
@@ -292,7 +291,7 @@ const styles = StyleSheet.create({
     width: width,
     height: height / 2
   },
-  profileCard: {
+  profileResto: {
     // position: "relative",
     padding: theme.SIZES.BASE,
     marginHorizontal: theme.SIZES.BASE,

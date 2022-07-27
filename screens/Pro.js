@@ -14,7 +14,10 @@ import { Images, argonTheme, articles } from "../constants/";
 import { Card } from "../components/";
 import React from "react";
 import artc from "../constants/artc";
-
+import ptdej from "../components/Petitdej";
+import Petitdej from "../components/Petitdej";
+import Sucrée from "../components/Sucrée";
+import Fast from "../components/Fast";
 const { width } = Dimensions.get("screen");
 
 const thumbMeasure = (width - 48 - 32) / 3;
@@ -115,16 +118,18 @@ class Pro extends React.Component {
             />
             
             <Block flex row>
-              <Card
+              <Petitdej
            
                 item={artc[1]}
                 style={{ marginRight: theme.SIZES.BASE }}
               />
-              <Card item={artc[2]} />
+              <Sucrée item={artc[2]} />
             </Block>
-            <Card item={artc[4]} full />
+            <Fast item={artc[4]} full />
             <Block flex card shadow style={styles.category}>
               <ImageBackground
+               onPress={() => navigation.navigate("Foods")}
+
                 source={{ uri: Images.FoodsPr["View article"] }}
                 style={[
                   styles.imageBlock,
